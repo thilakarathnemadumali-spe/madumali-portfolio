@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madumali Thilakarathne — Information Security GRC Analyst</title>
+<meta name="description" content="Portfolio of Madumali Thilakarathne — Information Security Governance, Risk & Compliance Analyst.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12182B;
+    --ink-soft:#2A3350;
+    --paper:#E7E9E4;
+    --paper-hi:#F4F5F1;
+    --line:#C7CBC0;
+    --amber:#C1791F;
+    --red:#9E3A2F;
+    --teal:#2F6B66;
+    --mono:'IBM Plex Mono', monospace;
+    --sans:'IBM Plex Sans', sans-serif;
+    --serif:'Fraunces', serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--amber);color:var(--paper-hi);}
+  a{color:inherit;}
+  :focus-visible{outline:2px solid var(--amber);outline-offset:3px;}
+
+  .wrap{max-width:980px;margin:0 auto;padding:0 28px;}
+
+  /* ---------- Eyebrow / stamp utilities ---------- */
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--amber);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{content:"";width:18px;height:1px;background:var(--amber);display:inline-block;}
+
+  .stamp{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    padding:4px 10px;
+    border:1.5px solid currentColor;
+    border-radius:3px;
+    transform:rotate(-2deg);
+  }
+  .stamp.verified{color:var(--teal);}
+  .stamp.gap{color:var(--red);}
+  .stamp.active{color:var(--amber);}
+
+  /* ---------- Header / nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(231,233,228,.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 0;
+  }
+  .nav-mark{
+    font-family:var(--mono);font-size:13px;letter-spacing:.05em;
+    color:var(--ink-soft);
+  }
+  .nav-links{display:flex;gap:26px;list-style:none;margin:0;padding:0;}
+  .nav-links a{
+    font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;
+    text-decoration:none;color:var(--ink-soft);
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+    transition:border-color .2s, color .2s;
+  }
+  .nav-links a:hover{border-color:var(--amber);color:var(--ink);}
+  .nav-toggle{display:none;background:none;border:1px solid var(--line);border-radius:4px;padding:6px 10px;font-family:var(--mono);cursor:pointer;}
+
+  @media (max-width:720px){
+    .nav-links{
+      position:fixed;top:57px;left:0;right:0;
+      background:var(--paper-hi);
+      flex-direction:column;
+      padding:18px 28px;
+      border-bottom:1px solid var(--line);
+      transform:translateY(-8px);
+      opacity:0;pointer-events:none;
+      transition:opacity .2s, transform .2s;
+    }
+    .nav-links.open{opacity:1;pointer-events:auto;transform:translateY(0);}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- Hero: case file cover ---------- */
+  .hero{
+    background:
+      linear-gradient(180deg, var(--ink) 0%, var(--ink) 100%);
+    color:var(--paper-hi);
+    padding:64px 0 56px;
+    position:relative;
+    overflow:hidden;
+    border-bottom:4px solid var(--amber);
+  }
+  .hero::before{
+    /* faint ledger grid texture */
+    content:"";
+    position:absolute;inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, transparent 1px 34px);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;z-index:1;}
+  .file-tab{
+    font-family:var(--mono);
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:#9AA6C9;
+    border:1px solid #3C4670;
+    display:inline-block;
+    padding:5px 12px;
+    border-radius:3px;
+    margin-bottom:22px;
+  }
+  .file-tab span{color:var(--amber);}
+  h1.name{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(38px, 6vw, 62px);
+    line-height:1.02;
+    margin:0 0 14px;
+    letter-spacing:-.01em;
+  }
+  .role-line{
+    font-family:var(--sans);
+    font-size:clamp(16px,2.2vw,20px);
+    color:#C7CDE6;
+    max-width:620px;
+    margin:0 0 28px;
+  }
+  .role-line strong{color:var(--paper-hi);font-weight:600;}
+  .meta-row{
+    display:flex;flex-wrap:wrap;gap:10px 22px;
+    font-family:var(--mono);font-size:13px;
+    color:#9AA6C9;
+    border-top:1px solid #2C3560;
+    padding-top:20px;
+  }
+  .meta-row a{text-decoration:none;color:#C7CDE6;border-bottom:1px dotted #5A6591;}
+  .meta-row a:hover{color:var(--amber);border-color:var(--amber);}
+
+  /* ---------- Redaction reveal ---------- */
+  .redact{
+    position:relative;
+    display:inline-block;
+  }
+  .redact .bar{
+    position:absolute;inset:0;
+    background:var(--ink);
+    transform-origin:left;
+    transition:transform .9s cubic-bezier(.65,0,.35,1);
+  }
+  .redact.revealed .bar{transform:scaleX(0);}
+
+  section{padding:74px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  h2.section-title{
+    font-family:var(--serif);
+    font-size:clamp(26px,3.6vw,34px);
+    font-weight:600;
+    margin:6px 0 8px;
+  }
+  .section-head{margin-bottom:38px;}
+  .lede{max-width:640px;color:var(--ink-soft);font-size:16px;}
+
+  /* ---------- Summary ---------- */
+  .summary-card{
+    background:var(--paper-hi);
+    border:1px solid var(--line);
+    border-left:4px solid var(--amber);
+    padding:30px 32px;
+    font-size:16.5px;
+    line-height:1.7;
+  }
+  .summary-card p{margin:0;}
+
+  /* ---------- Control register (skills) ---------- */
+  .register{
+    border:1px solid var(--line);
+    background:var(--paper-hi);
+  }
+  .reg-row{
+    display:grid;
+    grid-template-columns:90px 1fr;
+    border-bottom:1px solid var(--line);
+    transition:background .2s;
+  }
+  .reg-row:last-child{border-bottom:none;}
+  .reg-row:hover{background:#EFF1EA;}
+  .reg-id{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--amber);
+    padding:20px 16px;
+    border-right:1px solid var(--line);
+    display:flex;align-items:flex-start;
+  }
+  .reg-body{padding:20px 24px;}
+  .reg-title{font-weight:600;font-size:16px;margin:0 0 4px;}
+  .reg-desc{margin:0;color:var(--ink-soft);font-size:14.5px;}
+
+  /* ---------- Flagship project (case study) ---------- */
+  .case{
+    background:var(--paper-hi);
+    border:1px solid var(--line);
+  }
+  .case-header{
+    display:flex;justify-content:space-between;align-items:flex-start;gap:20px;
+    padding:28px 30px;
+    border-bottom:1px solid var(--line);
+    flex-wrap:wrap;
+  }
+  .case-header h3{font-family:var(--serif);font-size:24px;margin:0 0 6px;font-weight:600;}
+  .case-header .subject{font-family:var(--mono);font-size:13px;color:var(--ink-soft);}
+  .case-body{padding:28px 30px;}
+  .finding{
+    display:grid;grid-template-columns:22px 1fr;gap:14px;
+    margin-bottom:18px;
+    font-size:15px;
+  }
+  .finding:last-child{margin-bottom:0;}
+  .finding .dot{
+    width:9px;height:9px;border-radius:50%;background:var(--red);
+    margin-top:7px;
+  }
+  .finding.ok .dot{background:var(--teal);}
+  .finding b{display:block;font-size:14px;color:var(--ink);}
+  .finding p{margin:2px 0 0;color:var(--ink-soft);}
+  .case-tags{display:flex;gap:8px;flex-wrap:wrap;padding:0 30px 26px;}
+
+  /* ---------- Chain-of-custody timeline (experience) ---------- */
+  .log{border-left:2px solid var(--line);margin-left:8px;}
+  .log-entry{position:relative;padding:0 0 44px 30px;}
+  .log-entry:last-child{padding-bottom:0;}
+  .log-entry::before{
+    content:"";position:absolute;left:-7px;top:4px;
+    width:12px;height:12px;border-radius:50%;
+    background:var(--paper);border:2px solid var(--amber);
+  }
+  .log-date{font-family:var(--mono);font-size:12.5px;color:var(--amber);letter-spacing:.05em;text-transform:uppercase;}
+  .log-role{font-family:var(--serif);font-size:20px;font-weight:600;margin:4px 0 2px;}
+  .log-org{font-size:14.5px;color:var(--ink-soft);margin-bottom:12px;}
+  .log-toggle{
+    font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.06em;
+    background:none;border:1px solid var(--line);border-radius:3px;
+    padding:5px 10px;cursor:pointer;color:var(--ink-soft);
+    margin-bottom:12px;
+  }
+  .log-toggle:hover{border-color:var(--amber);color:var(--ink);}
+  .log-details{
+    list-style:none;margin:0;padding:0;
+    max-height:0;overflow:hidden;
+    transition:max-height .4s ease;
+  }
+  .log-details.open{max-height:900px;}
+  .log-details li{
+    position:relative;padding:8px 0 8px 18px;font-size:14.5px;color:var(--ink-soft);
+    border-top:1px dashed var(--line);
+  }
+  .log-details li:first-child{border-top:none;}
+  .log-details li::before{content:"—";position:absolute;left:0;color:var(--amber);}
+
+  /* ---------- Education / certs ---------- */
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  @media (max-width:720px){.grid-2{grid-template-columns:1fr;}}
+  .edu-card{background:var(--paper-hi);border:1px solid var(--line);padding:24px 26px;}
+  .edu-card h3{font-family:var(--serif);font-size:19px;margin:0 0 4px;}
+  .edu-card .school{font-size:14px;color:var(--ink-soft);margin-bottom:10px;}
+  .edu-card .thesis{font-size:13.5px;color:var(--ink-soft);font-style:italic;}
+
+  .seals{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:36px;}
+  .seal{
+    border:1px solid var(--line);background:var(--paper-hi);
+    padding:16px 18px;font-size:13.5px;
+    display:flex;flex-direction:column;gap:4px;
+  }
+  .seal .seal-name{font-weight:600;}
+  .seal .seal-org{color:var(--ink-soft);font-size:12.5px;font-family:var(--mono);}
+
+  /* ---------- Web dev registry ---------- */
+  .proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;}
+  .proj-card{
+    background:var(--paper-hi);border:1px solid var(--line);
+    padding:20px;text-decoration:none;color:var(--ink);
+    display:flex;flex-direction:column;gap:8px;
+    transition:transform .18s, border-color .18s;
+  }
+  .proj-card:hover{transform:translateY(-3px);border-color:var(--amber);}
+  .proj-name{font-weight:600;font-size:15px;}
+  .proj-url{font-family:var(--mono);font-size:12px;color:var(--ink-soft);word-break:break-all;}
+  .proj-arrow{font-family:var(--mono);font-size:13px;color:var(--amber);margin-top:auto;}
+
+  /* ---------- Contact / footer ---------- */
+  footer{
+    background:var(--ink);color:var(--paper-hi);
+    padding:64px 0 40px;
+  }
+  footer h2{font-family:var(--serif);font-size:clamp(28px,4vw,40px);margin:0 0 14px;font-weight:600;}
+  footer .lede2{color:#C7CDE6;max-width:520px;margin-bottom:32px;font-size:15.5px;}
+  .contact-grid{display:flex;flex-wrap:wrap;gap:14px;}
+  .contact-chip{
+    font-family:var(--mono);font-size:13.5px;
+    border:1px solid #3C4670;color:#C7CDE6;
+    padding:10px 16px;border-radius:3px;text-decoration:none;
+    transition:border-color .2s, color .2s;
+  }
+  .contact-chip:hover{border-color:var(--amber);color:var(--amber);}
+  .foot-note{
+    margin-top:48px;padding-top:20px;border-top:1px solid #2C3560;
+    font-family:var(--mono);font-size:11.5px;color:#7F8AB0;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .redact .bar{transition:none;}
+    .proj-card{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <span class="nav-mark">FILE // THILAKARATHNE, M.</span>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#summary">Summary</a></li>
+        <li><a href="#skills">Controls</a></li>
+        <li><a href="#project">Flagship Project</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#dev">Development Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="file-tab">Case File <span>#GRC-2026</span> · Status: Open to Opportunities</div>
+    <h1 class="name">Madumali Thilakarathne</h1>
+    <p class="role-line"><strong>Information Security — Governance, Risk & Compliance Analyst</strong><br>
+    MSc Information Systems &amp; Information Security Management, Örebro University</p>
+    <div class="meta-row">
+      <span>Örebro, Sweden</span>
+      <span>+46 76 443 38 49</span>
+      <a href="mailto:thilakarathnemadumali@gmail.com">thilakarathnemadumali@gmail.com</a>
+      <a href="https://www.linkedin.com/in/madhumali-thilakarathne" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://madhuexclusivesoft.wixsite.com/mtcn" target="_blank" rel="noopener">Portfolio (legacy)</a>
+    </div>
+  </div>
+</section>
+
+<section id="summary">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">01 · Abstract</div>
+      <h2 class="section-title redact" data-redact>Professional Summary<span class="bar"></span></h2>
+    </div>
+    <div class="summary-card">
+      <p>Structured and analytical Information Security professional with <strong>6+ years</strong> spanning project analysis, software development, risk assessment, and security control evaluation — translating technical and business inputs into clear, decision-ready risk statements. Hands-on GRC experience from an <strong>ISO/IEC 27001:2022 and GDPR compliance gap analysis</strong> for a Swedish elder-care SaaS platform seeking municipal procurement approval. Comfortable running workshops with both technical and non-technical stakeholders, assessing control maturity, and turning findings into prioritised, practical remediation actions. Currently seeking an entry-level or junior role in Information Security, ISMS, GRC Analysis, or Project Management.</p>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">02 · Control Register</div>
+      <h2 class="section-title redact" data-redact>Key Skills<span class="bar"></span></h2>
+      <p class="lede">Mapped the way a control register actually reads — each capability tagged the way an auditor would file it.</p>
+    </div>
+    <div class="register">
+      <div class="reg-row">
+        <div class="reg-id">AC‑01</div>
+        <div class="reg-body">
+          <p class="reg-title">Identity &amp; Access Management</p>
+          <p class="reg-desc">Designing access control systems with 100% audit-trail traceability.</p>
+        </div>
+      </div>
+      <div class="reg-row">
+        <div class="reg-id">DP‑02</div>
+        <div class="reg-body">
+          <p class="reg-title">Data Lifecycle Protection</p>
+          <p class="reg-desc">Governing data integrity and security controls at rest, in transit, and in use.</p>
+        </div>
+      </div>
+      <div class="reg-row">
+        <div class="reg-id">SD‑03</div>
+        <div class="reg-body">
+          <p class="reg-title">Secure SDLC Controls</p>
+          <p class="reg-desc">Embedding input validation and data-integrity controls within Agile web development.</p>
+        </div>
+      </div>
+      <div class="reg-row">
+        <div class="reg-id">RA‑04</div>
+        <div class="reg-body">
+          <p class="reg-title">Risk Analytics &amp; Dashboards</p>
+          <p class="reg-desc">Building real-time Power BI and advanced Excel dashboards to monitor control gaps.</p>
+        </div>
+      </div>
+      <div class="reg-row">
+        <div class="reg-id">RI‑05</div>
+        <div class="reg-body">
+          <p class="reg-title">Risk Identification &amp; Assessment</p>
+          <p class="reg-desc">Using quantitative and qualitative methods to evaluate business-relevant risk.</p>
+        </div>
+      </div>
+      <div class="reg-row">
+        <div class="reg-id">CM‑06</div>
+        <div class="reg-body">
+          <p class="reg-title">Regulatory Compliance Mapping</p>
+          <p class="reg-desc">ISO/IEC 27001:2022, EU NIS2 Directive, and GDPR.</p>
+        </div>
+      </div>
+      <div class="reg-row">
+        <div class="reg-id">GA‑07</div>
+        <div class="reg-body">
+          <p class="reg-title">Compliance Gap Analysis</p>
+          <p class="reg-desc">Evaluating existing security baselines against municipal procurement standards.</p>
+        </div>
+      </div>
+      <div class="reg-row">
+        <div class="reg-id">NO‑08</div>
+        <div class="reg-body">
+          <p class="reg-title">National Digital Oversight</p>
+          <p class="reg-desc">Managing risk monitoring for large-scale, national-level IT infrastructure projects.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="project">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">03 · Flagship Engagement</div>
+      <h2 class="section-title redact" data-redact>GRC &amp; ISO/IEC 27001:2022 Gap Analysis<span class="bar"></span></h2>
+      <p class="lede">Swedish elder-care SaaS platform, evaluated for municipal procurement.</p>
+    </div>
+    <div class="case">
+      <div class="case-header">
+        <div>
+          <h3>Procurement-Readiness Compliance Framework</h3>
+          <div class="subject">GDPR · EU NIS2 Directive · ISO/IEC 27001:2022</div>
+        </div>
+        <span class="stamp active">In Scope</span>
+      </div>
+      <div class="case-body">
+        <div class="finding">
+          <div class="dot"></div>
+          <div>
+            <b>Stakeholder &amp; legal mapping</b>
+            <p>Mapped GDPR Article 28 (data processing agreements), Articles 44–46 (third-country transfers), and Article 35 (DPIA) across procurement officers, data protection officers, and digital inspectors.</p>
+          </div>
+        </div>
+        <div class="finding">
+          <div class="dot"></div>
+          <div>
+            <b>Gaps identified</b>
+            <p>Critical control gaps found in information security policy, access control, cloud services security, and encryption — driven by non-EU data hosting.</p>
+          </div>
+        </div>
+        <div class="finding ok">
+          <div class="dot"></div>
+          <div>
+            <b>Baseline controls validated</b>
+            <p>Existing controls for asset inventories and information deletion confirmed adequate — no remediation required.</p>
+          </div>
+        </div>
+        <div class="finding ok">
+          <div class="dot"></div>
+          <div>
+            <b>Outcome delivered</b>
+            <p>Prioritised, business-relevant remediation roadmap handed to governance boards, legal advisors, and municipal auditors to reach procurement-ready status.</p>
+          </div>
+        </div>
+      </div>
+      <div class="case-tags">
+        <span class="stamp gap">Gap Analysis</span>
+        <span class="stamp verified">Baseline Verified</span>
+        <span class="stamp active">Remediation Roadmap</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">04 · Chain of Custody</div>
+      <h2 class="section-title redact" data-redact>Professional Experience<span class="bar"></span></h2>
+      <p class="lede">Click a role to expand the record.</p>
+    </div>
+    <div class="log">
+
+      <div class="log-entry">
+        <div class="log-date">Jan 2021 – Aug 2024</div>
+        <div class="log-role">Development Officer / IT Project Analyst</div>
+        <div class="log-org">Ministry of Technology / Ministry of Digital Economy — Colombo, Sri Lanka</div>
+        <button class="log-toggle" data-target="log-1">Expand record</button>
+        <ul class="log-details" id="log-1">
+          <li>Provided ministry-level project oversight and risk monitoring across the capital budget portfolio for major technology institutions (ICTA, TRCSL, SLCERT, SLT, SLSI), spanning 15+ concurrent national digital programmes.</li>
+          <li>Identified and analysed risk trends across capital and foreign-funded digital infrastructure projects, developing mitigation strategies and escalation pathways with technical specialists.</li>
+          <li>Designed and maintained project steering dashboards tracking schedule, budget, and resource utilisation — cut reporting errors by 40%.</li>
+          <li>Prepared Cabinet Memoranda, Parliamentary responses, and donor compliance reports for national-level governance and audit purposes.</li>
+          <li>Evaluated internationally funded digital infrastructure projects for compliance with donor reporting requirements, timelines, and financial controls.</li>
+          <li>Conducted regular on-site project visits to verify milestones and implement corrective actions.</li>
+          <li>Led consolidation of the Ministry's Annual Action Plan and Performance Report; primary PMO liaison between leadership, technology agencies, and external partners.</li>
+        </ul>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-date">Aug 2019 – Dec 2020</div>
+        <div class="log-role">Development Officer</div>
+        <div class="log-org">Galigamuwa Divisional Secretariat — Kegalle, Sri Lanka</div>
+        <button class="log-toggle" data-target="log-2">Expand record</button>
+        <ul class="log-details" id="log-2">
+          <li>Designed and deployed a compliance-aligned digital dashboard governing 78,000+ citizen and administrative records, embedding data integrity, traceability, and audit-readiness controls.</li>
+          <li>Implemented a barcode-based IAM system with full audit-trail management — 100% traceability of access events, zero unauthorised modifications during tenure.</li>
+          <li>Built real-time governance and risk dashboards for stakeholders, reducing time-to-detection for emerging control gaps.</li>
+          <li>Standardised data-handling procedures in line with government data-handling policy and IoT security compliance standards.</li>
+        </ul>
+      </div>
+
+      <div class="log-entry">
+        <div class="log-date">Mar 2017 – Jul 2019</div>
+        <div class="log-role">Web Developer</div>
+        <div class="log-org">Exclusive Web Arts Pvt Ltd — Colombo, Sri Lanka</div>
+        <button class="log-toggle" data-target="log-3">Expand record</button>
+        <ul class="log-details" id="log-3">
+          <li>Delivered 60+ web applications using Agile methodologies, embedding secure data handling, input validation, and data-integrity controls throughout the SDLC.</li>
+          <li>Coordinated secure payment gateway integrations with compliance-aligned data flows and QA documentation.</li>
+          <li>Bridged technical and business stakeholder requirements into functional specifications, reducing rework and delivery delays.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">05 · Credentials on File</div>
+      <h2 class="section-title redact" data-redact>Education &amp; Certifications<span class="bar"></span></h2>
+    </div>
+    <div class="grid-2">
+      <div class="edu-card">
+        <h3>MSc Information Systems &amp; Information Security Management</h3>
+        <div class="school">Örebro University, Sweden · 09/2024 – 06/2026</div>
+        <div class="thesis">Thesis: "Information Security Challenges in Inter-Organizational Logistics Collaboration: A Scoping Literature Review" — Grade B</div>
+      </div>
+      <div class="edu-card">
+        <h3>Bachelor of Information Technology</h3>
+        <div class="school">Curtin University, Western Australia · 2010 – 2014</div>
+        <div class="thesis">Plus: National Diploma in Cyber Security, Sri Lanka CERT (2024)</div>
+      </div>
+    </div>
+    <div class="seals">
+      <div class="seal"><span class="seal-name">ISO/IEC 27001:2022 Information Security Associate</span><span class="seal-org">SkillFront · Aug 2025</span></div>
+      <div class="seal"><span class="seal-name">Cyber Job Simulation</span><span class="seal-org">Deloitte Australia via Forage · Mar 2026</span></div>
+      <div class="seal"><span class="seal-name">Certified Data Security Analyst</span><span class="seal-org">Malaysian Technical Cooperation · Jun 2023</span></div>
+      <div class="seal"><span class="seal-name">CompTIA Security+ (Training)</span><span class="seal-org">Udemy · Aug 2023</span></div>
+      <div class="seal"><span class="seal-name">Enterprise Security Fundamentals</span><span class="seal-org">Microsoft Learning Partner · Aug 2023</span></div>
+      <div class="seal"><span class="seal-name">Cyber Security for Power Professionals</span><span class="seal-org">Indian Technical &amp; Economic Cooperation · Dec 2022</span></div>
+      <div class="seal"><span class="seal-name">Networking Basics &amp; Cybersecurity</span><span class="seal-org">Cisco Networking Academy · 2023</span></div>
+      <div class="seal"><span class="seal-name">Learning Paths &amp; Modules</span><span class="seal-org">TryHackMe · Hack The Box</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="dev">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">06 · Prior Work Product</div>
+      <h2 class="section-title redact" data-redact>Web &amp; Software Development<span class="bar"></span></h2>
+      <p class="lede">Selected delivery work from four years as a developer — the SDLC discipline this GRC background is built on.</p>
+    </div>
+    <div class="proj-grid">
+      <a class="proj-card" href="https://dsgaligamuwa.lk/" target="_blank" rel="noopener">
+        <span class="proj-name">Galigamuwa Divisional Secretariat Portal</span>
+        <span class="proj-url">dsgaligamuwa.lk</span>
+        <span class="proj-arrow">View →</span>
+      </a>
+      <a class="proj-card" href="https://www.figma.com/file/4f4Ir6QVVa5wW9WfOCwJd6/T-Service-Provider2?type=design&node-id=511-115&mode=design" target="_blank" rel="noopener">
+        <span class="proj-name">Thapronome — Service Provider App</span>
+        <span class="proj-url">Athena Hackathon 2022 · 1st Place</span>
+        <span class="proj-arrow">View Figma →</span>
+      </a>
+      <a class="proj-card" href="http://www.taprobanetravels.com/" target="_blank" rel="noopener">
+        <span class="proj-name">Taprobane Travels</span>
+        <span class="proj-url">taprobanetravels.com</span>
+        <span class="proj-arrow">View →</span>
+      </a>
+      <a class="proj-card" href="https://tropicalretreat.lk/" target="_blank" rel="noopener">
+        <span class="proj-name">Tropical Retreat</span>
+        <span class="proj-url">tropicalretreat.lk</span>
+        <span class="proj-arrow">View →</span>
+      </a>
+      <a class="proj-card" href="https://seerockholidays.com/" target="_blank" rel="noopener">
+        <span class="proj-name">Seerock Holidays</span>
+        <span class="proj-url">seerockholidays.com</span>
+        <span class="proj-arrow">View →</span>
+      </a>
+      <a class="proj-card" href="https://www.shalomvillas.com/" target="_blank" rel="noopener">
+        <span class="proj-name">Shalom Villas</span>
+        <span class="proj-url">shalomvillas.com</span>
+        <span class="proj-arrow">View →</span>
+      </a>
+      <a class="proj-card" href="http://www.dhahampasala.org/" target="_blank" rel="noopener">
+        <span class="proj-name">Dhahampasala</span>
+        <span class="proj-url">dhahampasala.org</span>
+        <span class="proj-arrow">View →</span>
+      </a>
+      <a class="proj-card" href="https://olcottschoolsuae.org/" target="_blank" rel="noopener">
+        <span class="proj-name">Olcott School</span>
+        <span class="proj-url">olcottschoolsuae.org</span>
+        <span class="proj-arrow">View →</span>
+      </a>
+      <a class="proj-card" href="https://seerockthekingsdomain.com/" target="_blank" rel="noopener">
+        <span class="proj-name">Seerock Kings</span>
+        <span class="proj-url">seerockthekingsdomain.com</span>
+        <span class="proj-arrow">View →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#9AA6C9;">07 · Get In Touch</div>
+    <h2>Let's talk about the role.</h2>
+    <p class="lede2">Open to entry-level and junior positions in Information Security, ISMS, GRC Analysis, or Project Management — based in Örebro, eligible to work in Sweden.</p>
+    <div class="contact-grid">
+      <a class="contact-chip" href="mailto:thilakarathnemadumali@gmail.com">✉ thilakarathnemadumali@gmail.com</a>
+      <a class="contact-chip" href="tel:+46764433849">☎ +46 76 443 38 49</a>
+      <a class="contact-chip" href="https://www.linkedin.com/in/madhumali-thilakarathne" target="_blank" rel="noopener">in LinkedIn</a>
+      <a class="contact-chip" href="https://github.com/" target="_blank" rel="noopener">⌥ GitHub</a>
+    </div>
+    <div class="foot-note">
+      <span>© 2026 Madumali Thilakarathne</span>
+      <span>Örebro, Sweden</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // Experience accordion
+  document.querySelectorAll('.log-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.dataset.target);
+      const isOpen = target.classList.toggle('open');
+      btn.textContent = isOpen ? 'Collapse record' : 'Expand record';
+    });
+  });
+
+  // Redaction reveal on scroll
+  const redactEls = document.querySelectorAll('[data-redact]');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  redactEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
